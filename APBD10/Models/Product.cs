@@ -22,4 +22,6 @@ public class Product
     
     [Column("depth", TypeName = "decimal(5,2)")]
     public decimal ProductDepth { get; set; }
+    
+    public IEnumerable<ShoppingCart> ShoppingCarts { get; set; }
 }

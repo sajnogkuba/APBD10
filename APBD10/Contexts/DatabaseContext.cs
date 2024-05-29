@@ -18,5 +18,7 @@ public class DatabaseContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<ShoppingCart>()
+            .HasKey(cart =>  new { cart.AccountID, cart.ProductID });
     }
 }
