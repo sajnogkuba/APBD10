@@ -1,4 +1,6 @@
 using APBD10.Contexts;
+using APBD10.DTOs;
+using APBD10.Models;
 using APBD10.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddDbContext<DatabaseContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
@@ -27,5 +30,10 @@ app.UseHttpsRedirection();
 
 app.MapGet("api/accounts/{accountId}", async (int id, IAccountService service) => Results.Ok((object?)await service.GetAccountAsync(id)));
 
+app.MapPost("api/products", async (AddProductDTO product, IProductService service) =>
+{
+    await service.AddProductAsync(product);
+    return Results.Created("api/products", product);
+});
 
 app.Run();

@@ -3,8 +3,8 @@ namespace APBD10.DTOs;
 public record AddProductDTO
 {
     public string productName { get; set; }
-    public double productWeight { get; set; }
-    public double productHeight { get; set; }
-    public double productDepth { get; set; }
+    public decimal productWeight { get; set; }
+    public decimal productHeight { get; set; }
+    public decimal productDepth { get; set; }
     public List<int> productCategories { get; set; }
 }
