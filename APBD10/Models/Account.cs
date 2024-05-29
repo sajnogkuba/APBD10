@@ -11,6 +11,7 @@ public class Account
     public int AccountId { get; set; }
     
     [Column("FK_role")]
+    [ForeignKey("Roles")]
     public int RoleId { get; set; }
     
     [Column("first_name")]
@@ -29,5 +30,7 @@ public class Account
     [MaxLength(9)]
     public string? AccountPhone { get; set; }
 
+    public Role Role { get; set; }
+    
     public IEnumerable<ShoppingCart> ShoppingCarts { get; set; }
 }

@@ -27,6 +27,6 @@ public class DatabaseContext : DbContext
             .HasKey(cart =>  new { cart.AccountID, cart.ProductID });
         
         modelBuilder.Entity<ProductCategory>()
-            .HasKey(pc => new {pc.ProductId, pc.CategoryId});
+            .HasKey(pc => new { pc.ProductId, pc.CategoryId });
     }
 }

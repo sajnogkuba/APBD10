@@ -6,8 +6,14 @@ namespace APBD10.Models;
 public class ProductCategory
 {
     [Column("FK_product")]
+    [ForeignKey("Products")]
     public int ProductId { get; set; }
     
     [Column("FK_category")]
+    [ForeignKey("Categories")]
     public int CategoryId { get; set; }
+    
+    public Product Product { get; set; }
+    
+    public Category Category { get; set; }
 }
