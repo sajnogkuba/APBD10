@@ -3,6 +3,7 @@ using APBD10.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APBD10.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240529142602_Add test data to table Shopping_Carts")]
+    partial class AddtestdatatotableShopping_Carts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,23 +114,6 @@ namespace APBD10.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            CategoryId = 1,
-                            CategoryName = "Category 1"
-                        },
-                        new
-                        {
-                            CategoryId = 2,
-                            CategoryName = "Category 2"
-                        },
-                        new
-                        {
-                            CategoryId = 3,
-                            CategoryName = "Category 3"
-                        });
                 });
 
             modelBuilder.Entity("APBD10.Models.Product", b =>
@@ -203,23 +189,6 @@ namespace APBD10.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products_Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            CategoryId = 3
-                        });
                 });
 
             modelBuilder.Entity("APBD10.Models.Role", b =>
