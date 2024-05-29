@@ -1,4 +1,5 @@
 using APBD10.Contexts;
+using APBD10.Exceptions;
 using APBD10.ResponseModels;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,7 +35,7 @@ public class AccountService(DatabaseContext context) : IAccountService
 
         if (response == null)
         {
-            throw new Exception("Account not found");
+            throw new NotFoundException($"Account with id {accountId} not found.");
         }
         
 
