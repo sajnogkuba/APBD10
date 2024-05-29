@@ -13,4 +13,6 @@ public class Role
     [Column("name")]
     [MaxLength(100)]
     public string RoleName { get; set; }
+
+    public IEnumerable<Account> Accounts { get; set; }
 }
