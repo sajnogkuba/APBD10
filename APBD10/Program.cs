@@ -1,5 +1,6 @@
 using APBD10.Contexts;
 using APBD10.DTOs;
+using APBD10.Exceptions;
 using APBD10.Models;
 using APBD10.Services;
 using Microsoft.EntityFrameworkCore;
@@ -32,7 +33,13 @@ app.MapGet("api/accounts/{accountId}", async (int id, IAccountService service) =
 
 app.MapPost("api/products", async (AddProductDTO product, IProductService service) =>
 {
-    await service.AddProductAsync(product);
+    try
+    {
+        await service.AddProductAsync(product);   
+    } catch (AddProductException e)
+    {
+        return Results.BadRequest(e.Message);
+    }
     return Results.Created("api/products", product);
 });
 
