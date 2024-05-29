@@ -7,7 +7,7 @@ namespace APBD10.Models;
 public class Product
 {
     [Key]
-    [Column("PK_Product")]
+    [Column("PK_product")]
     public int ProductId { get; set; }
     
     [Column("name")]

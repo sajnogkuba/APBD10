@@ -6,6 +6,7 @@ namespace APBD10.Contexts;
 public class DatabaseContext : DbContext
 {
     public DbSet<Product> Products { get; set; }
+    public DbSet<Role> Roles { get; set; }
     protected DatabaseContext()
     {
     }
