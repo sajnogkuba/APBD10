@@ -10,6 +10,7 @@ public class DatabaseContext : DbContext
     public DbSet<Account> Accounts { get; set; }
     public DbSet<ShoppingCart> ShoppingCarts { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<ProductCategory> ProductsCategories { get; set; }
     
     protected DatabaseContext()
     {
@@ -24,5 +25,8 @@ public class DatabaseContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<ShoppingCart>()
             .HasKey(cart =>  new { cart.AccountID, cart.ProductID });
+        
+        modelBuilder.Entity<ProductCategory>()
+            .HasKey(pc => new {pc.ProductId, pc.CategoryId});
     }
 }

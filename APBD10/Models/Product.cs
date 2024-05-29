@@ -24,4 +24,6 @@ public class Product
     public decimal ProductDepth { get; set; }
     
     public IEnumerable<ShoppingCart> ShoppingCarts { get; set; }
+    
+    public IEnumerable<ProductCategory> ProductCategories { get; set; }
 }
