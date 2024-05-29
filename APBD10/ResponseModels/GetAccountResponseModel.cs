@@ -2,16 +2,17 @@ namespace APBD10.ResponseModels;
 
 public class GetAccountResponseModel
 {
-    public string AccountFirstName { get; set; }
-    public string AccountLastName { get; set; }
-    public string AccountEmail { get; set; }
-    public string? AccountPhone { get; set; }
-    public string RoleName { get; set; }
+    public string firstName { get; set; }
+    public string lastName { get; set; }
+    public string email { get; set; }
+    public string? phone { get; set; }
+    public string role { get; set; }
+    public List<CartItem> cart { get; set; }
 }
 
 public class CartItem
 {
-    public int ProductId { get; set; }
-    public string ProductName { get; set; }
-    public int ShoppingCartAmount { get; set; }
+    public int productId { get; set; }
+    public string productName { get; set; }
+    public int amount { get; set; }
 }
